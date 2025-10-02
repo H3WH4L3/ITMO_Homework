@@ -8,5 +8,5 @@
 
 ## Состояние
 - `lesson_1/` - Done ✅
-- ...
+- `lesson_2/` - Done ✅
 
