@@ -4,5 +4,6 @@
 f = open("text.txt", "w+t")
 f.write("Hello\n")
 # Ваше решение.
-
+f.seek(0)
+print(f.read().strip())
 f.close()
