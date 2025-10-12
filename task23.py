@@ -25,7 +25,7 @@ def generate_key() -> str:
     return keys.pop()
 
 def save_game(id_session, word, mask):
-    # dt, id_session, name, word, mask
+    
     f = open("save_game.csv", "at", encoding="utf-8")
     dt = datetime.datetime.now()
     mask_str = "".join(mask)
@@ -35,6 +35,7 @@ def save_game(id_session, word, mask):
     print("Сохранил игру!")
 
 def load_game():
+    
     f = open("save_game.csv", "tr", encoding="utf-8")
     indx = 0
     list_str = f.readlines()
@@ -46,7 +47,7 @@ def load_game():
     indx_load = int(input("Введите номер:"))
     sg = list_str[indx_load].split("|")
     key = sg[3].strip()
-    mask = sg[4].strip()  # было с \n в конце
+    mask = sg[4].strip()
     session_uuid = sg[1]
     print(session_uuid, key, list(mask))
     start_game(session_uuid, key, list(mask))
