@@ -32,4 +32,5 @@ with open("message.txt", "r", encoding="UTF-8") as file:
         result.append(result_line)
         count += 1
 
-print(*result)
+with open("cesar_result.txt", "w", encoding="UTF-8") as f:
+    f.writelines(result)
