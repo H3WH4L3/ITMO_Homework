@@ -5,14 +5,13 @@
 # grznuamn zngz cge sge tuz hk uhbouay gz loxyz atrkyy eua'xk jazin.
 
 
-# 97 122
 def caesar_decode(s, step):
-    out = ""
+    result = ""
     for ch in s:
-        if "a" <= ch <= "z":
+        if ch.isalpha() and "a" <= ch <= "z":
             ch = chr((ord(ch) - 97 - step) % 26 + 97)
-        out += ch
-    return "".join(out)
+        result += ch
+    return result
 
 
 input_string = "grznuamn zngz cge sge tuz hk uhbouay gz loxyz atrkyy eua'xk jazin."
