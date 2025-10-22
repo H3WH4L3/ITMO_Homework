@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .high {
+            color: red;
+        }
+
+        .medium {
+            color: orange;
+        }
+
+        .low {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Список заданий</h1>
+    <form method="POST" action="/add">
+        <input type="text" name="task" placeholder="Добавь задачу">
+        <input type="text" name="description" placeholder="Опишите задачу">
+        <select name="priority">
+            <option value="2">Высокий</option>
+            <option value="1">Средний</option>
+            <option value="0">Низкий</option>
+        </select>
+        <input type="date" name="start_date">
+        <button type="submit">Добавить</button>
+    </form>
+    <ul>
+        {% for task in tasks | sort(attribute='priority', reverse=True) | sort(attribute='complete') %}
+        <li
+            class="{{ 'high' if task.priority == 2 else 'medium' if task.priority == 1 else 'low' }} {{ 'complete' if task.complete == 1 }}">
+            {% if task.complete %}
+            <strike>{{ task.task }}</strike>
+            {% else %}
+            {{ task.task }}
+            {% endif %}
+            <div class="actions">
+                <a href="/complete/{{ task.id }}" class="btn">Завершить</a>
+                <a href="/delete/{{ task.id }}" class="btn">Удалить</a>
+                <a href="/edit/{{ task.id }}" class="btn">Изменить</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

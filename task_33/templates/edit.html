@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Изменение задачи</title>
+</head>
+
+<body>
+    <h1>Изменить задачу</h1>
+    <form method="POST" action="/edit/{{ task_id }}">
+        <input type="text" name="task" value="">
+        <input type="text" name="description" value="">
+        <select name="priority">
+            <option value="2">Высокий</option>
+            <option value="1">Средний</option>
+            <option value="0">Низкий</option>
+        </select>
+        <input type="date" name="start_date" value="">
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+
+</html>
