@@ -4,6 +4,36 @@
 # Реализуйте свойство total_price, которое вычисляет общую стоимость заказа на основе цен всех товаров
 # в списке. Реализуйте методы add_product(product) и remove_product(product) для управления списком.
 
+
+class Order:
+    def __init__(self):
+        self.product_list = []
+
+    @property
+    def total_price(self):
+        result = 0
+        for element in self.product_list:
+            result += element.price
+        return result
+
+    def add_product(self, product):
+        self.product_list.append(product)
+
+
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        self._price = value if value > 0 else 0
+
+
 # Пример использования
 book = Product("Book", 10)
 pen = Product("Pen", 2)
