@@ -11,10 +11,7 @@ class Order:
 
     @property
     def total_price(self):
-        result = 0
-        for element in self.product_list:
-            result += element.price
-        return result
+        return sum([product.price for product in self.product_list])
 
     def add_product(self, product):
         self.product_list.append(product)
