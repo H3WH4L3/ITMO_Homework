@@ -14,21 +14,25 @@
 
 class NotificationSender:
     def send(self, message, user):
-        pass
+        raise NotImplementedError("Этот метод должен быть переопределён")
 
 
 class EmailSender(NotificationSender):
     def send(self, message, user):
-        print("Образовательная платформа\n" + message)
+        print(user.name)
+        print("Тема: Образовательная платформа")
+        print(message)
 
 
 class SMSSender(NotificationSender):
     def send(self, message, user):
+        print(user.name)
         print(message[:50])
 
 
 class PushSender(NotificationSender):
     def send(self, message, user):
+        print(user.name)
         print("🎓" + message)
 
 
